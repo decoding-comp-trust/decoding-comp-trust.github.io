@@ -1,14 +1,17 @@
-# Nerfies
+# Decoding Compressed Trust: Scrutinizing the Trustworthiness of Efficient LLMs Under Compression
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+This is the repository that contains source code for the [Decoding Compressed Trust website](https://decoding-comp-trust.github.io/).
 
-If you find Nerfies useful for your work please cite:
+
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+@article{hong2024comptrust,
+    title={Decoding Compressed Trust: Scrutinizing the Trustworthiness of Efficient LLMs Under Compression},
+    author={Hong, Junyuan and Duan, Jinhao and Zhang, Chenhui and Li, Zhangheng 
+      and Xie, Chulin and Lieberman, Kelsey and Diffenderfer, James 
+      and Bartoldson, Brian and Jaiswal, Ajay and Xu, Kaidi and Kailkhura, Bhavya 
+      and Hendrycks, Dan and Song, Dawn and Wang, Zhangyang and Bo Li},
+    journal={arXiv preprint arXiv:XXX},
+    year={2024}
 }
 ```
 
