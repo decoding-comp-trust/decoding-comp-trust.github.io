@@ -527,12 +527,12 @@
       <h2 class="title">Bag of Tricks for Trustworthy Compression</h2>
 
       <p>We summarize the guidance for compressing a trustworthy LLM as follows.
-        <ul>
+        <ol>
           <li>In terms of efficiency, both quantization and pruning can work, but <i>quantization (AWQ) is more promising</i> for
           obtaining trustworthy LLMs at the same compression rate.</li>
           <li>Choose a trustworthy dense model to start with, since quantized models will restore their trustworthiness.</li>
           <li>If the model weights (or pruning choices) are calibrated with a random set of data, <i>the heavily compressed model should be fully evaluated</i> to avoid potential risks before deployment.</li>
-        </ul>
+        </ol>
       </p>
     </div>
   </div>
