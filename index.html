@@ -259,11 +259,9 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="container">
-      <h2 class="title is-3">Setup</h2>
+      <h2 class="title is-3">Benchmark</h2>
       
       <!-- <img src="./static/images/methods.png" alt="methods"> -->
-      
-      Model List May refer to Qinbin's website on the table.
       
       <table class="table is-striped is-fullwidth">
         <tr>
@@ -310,9 +308,13 @@
         </tr>
       </table>
       
+      As shown in the above table, we curate a set of state-of-the-art training-free pruning and quantization methods that can lead to true acceleration on hardware.
       Models are available at <a href="https://huggingface.co/compressed-llm">compressed-llm huggingface org</a>.
       Codes for preparing the models are available at the <a href="https://github.com/decoding-comp-trust/comp-trust">decoding-comp-trust/comp-trust</a> repo.
       The benchmark is modified from DecodingTrust and the modified benchmark code is available at <a href="https://github.com/decoding-comp-trust/DecodingTrust">here</a>.
+      A full comparision with other dense models, please refer to the <a href="https://huggingface.co/spaces/AI-Secure/llm-trustworthy-leaderboard">DecodingTrust Leaderboard</a>.
+      But note that the results in standard DecodingTrust Leaderboard will be different from results here referring to <a href="https://github.com/decoding-comp-trust/DecodingTrust">our code checkpoint</a>.
+      A compression-centric leaderboard is as follows.
     </div>
   </div>
 </section>
@@ -323,7 +325,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column">
       
-      <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+      <h3 class="title is-3" id="leaderboard">Leaderboard</h3>
 
       <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
       <table id="myTable" class="display"></table>
@@ -402,7 +404,7 @@
 
     // Example modification: append "-NEW" to each value
     // return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\">" + base_model + ", " + comp_str + ", " + rate_str +"</a>";
-    return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\"> link </a> " + rate_str;
+    return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\"> chkpt </a> " + rate_str;
   }
 
 
