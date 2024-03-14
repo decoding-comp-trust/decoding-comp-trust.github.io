@@ -3,6 +3,10 @@ table {
     border-collapse: collapse;
 }
 
+.highlight-row {
+    background-color: rgba(250, 215, 215, 0.497) !important;
+}
+
 /* th {
     padding: 2px 5px;
     border: 1px solid black;
@@ -27,6 +31,7 @@ thead {
 /* table tr:hover {
     background-color: coral;
 } */
+
 
 
 table#results.js-sort-0 tbody tr td:nth-child(1),

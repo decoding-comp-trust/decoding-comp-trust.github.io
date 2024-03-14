@@ -51,14 +51,14 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
     integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"> -->
+  <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script> -->
 
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script> -->
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" /> -->
-  
-  <!-- <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script> -->
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
+  <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
   <!-- END dyn table -->
 </head>
 
@@ -319,7 +319,7 @@
 </section>
 
 
-<section class="section hero is-light is-small">
+<section class="section hero is-small">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
@@ -419,12 +419,16 @@
           ],
           header: true,
           stripeClasses: ['odd-row', 'even-row'],
-          order: [[11, 'desc']]
+          order: [[11, 'desc']],
         });
 
-        table.rows().every(function () {
+        table.rows().every(function (rowIdx, tableLoop, rowLoop) {
           var data = this.data();
           data['Model'] = modifyModelName(data['Model']);
+
+          if (data['Method Subtype'] == 'none') {
+            $(this.node()).addClass('highlight-row')
+          }
           this.data(data); // Set the modified data back to the row
         });
 
@@ -549,7 +553,7 @@
       and Xie, Chulin and Lieberman, Kelsey and Diffenderfer, James 
       and Bartoldson, Brian and Jaiswal, Ajay and Xu, Kaidi and Kailkhura, Bhavya 
       and Hendrycks, Dan and Song, Dawn and Wang, Zhangyang and Bo Li},
-    journal={arXiv preprint arXiv:XXX},
+    journal={arXiv},
     year={2024}
 }</code></pre>
     </div>
