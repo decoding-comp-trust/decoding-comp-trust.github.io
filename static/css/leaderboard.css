@@ -17,11 +17,15 @@ thead {
     background: #ddd;
 }
 
-table th:hover, td:hover {
+/* table th:hover, td:hover {
     background-color: #f3f3f3;
-}
+} */
 /* table td:hover {
     background-color: #e9e9e9;
+} */
+
+/* table tr:hover {
+    background-color: coral;
 } */
 
 

@@ -53,6 +53,12 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.2/js/dataTables.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" /> -->
+  
+  <!-- <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script> -->
   <!-- END dyn table -->
 </head>
 
@@ -312,56 +318,25 @@
   </div>
 </section>
 
-<!-- <section class="section hero is-small">
-  <div class="hero-body">
-    <div class="container"> -->
-<section class="section hero is-light">
+
+<section class="section hero is-light is-small">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-    <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
-    <!-- <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content"> -->
-        <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+      
+      <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
 
-        <table id="table1"></table>
-      </div>
-    </div>
-  </div>
-</section>
-
+      <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+<table id="myTable" class="display"></table>
 <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
 
 <script>
-
-  function sortTable(table, column, type, asc) {
-    var tbody = table.tBodies[0];
-    var rows = Array.from(tbody.rows);
-
-    rows.sort(function (a, b) {
-      var valA = a.cells[column].textContent;
-      var valB = b.cells[column].textContent;
-
-      if (type === 'number') {
-        valA = parseFloat(valA);
-        valB = parseFloat(valB);
-      }
-
-      if (asc) {
-        return valA > valB ? 1 : -1;
-      } else {
-        return valA < valB ? 1 : -1;
-      }
-    });
-
-    rows.forEach(row => tbody.appendChild(row));
-  }
 
   function modifyModelName(val) {
     let model_name = val.split("/")[2];
     const models = ["llama-2-13b-chat", "llama-2-13b", "vicuna-13b-v1.3"];
     const compressions = ["gptq", "awq", "mag", "sparsegpt", "wanda"];
-    
+
     var base_model = "";
     for (let i = 0; i < models.length; i++) {
       if (model_name.includes(models[i])) {
@@ -395,6 +370,7 @@
 
     let match = model_name.match(regex);
     let seed;
+    var seed_str = "";
 
     if (match) {
       // Check which group ('prefix' or 'suffix') has the number
@@ -407,38 +383,43 @@
       // console.log(seed); // Outputs the extracted number
 
       rate_str = rate_str + " (seed " + seed + ")";
+      seed_str = seed_str + "(seed " + seed + ")";
     } else {
       // console.log("No number found adjacent to 'seed'" + "for " + model_name);
     }
-    
+
     // Example modification: append "-NEW" to each value
-    return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\">" + base_model + ", " + comp_str + ", " + rate_str +"</a>";
+    // return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\">" + base_model + ", " + comp_str + ", " + rate_str +"</a>";
+    return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\"> link </a> " + seed_str;
   }
 
 
   document.addEventListener('DOMContentLoaded', function () {
-    Papa.parse('./static/csv/leaderboard.csv', {
+    Papa.parse('./static/csv/num_sheet.csv', {
       download: true,
       header: true,
       complete: function (results) {
         let data = results.data;
-        let table = $('#table1').DataTable({
+        let table = $('#myTable').DataTable({
           data: data,
           columns: [
-            { data: 'Model', title: 'Model' },
+            { data: 'Base Model', title: 'Base Model' },
+            { data: 'Sparsity/bits', title: 'Sparsity/bits' },
+            { data: 'Method Subtype', title: 'Comp Method' },
             { data: 'Toxicity', title: 'Toxicity' },
-            { data: 'Stereotype Bias', title: 'Stereotype Bias' },
-            { data: 'Adversarial Robustness', title: 'Adversarial Robustness' },
-            { data: 'Out-of-Distribution Robustness', title: 'Out-of-Distribution Robustness' },
-            { data: 'Robustness to Adversarial Demonstrations', title: 'Robustness to Adversarial Demonstrations' },
+            { data: 'Stereotype', title: 'Stereotype Bias' },
+            { data: 'AdvGLUE++', title: 'Adversarial Robustness' },
+            { data: 'OOD', title: 'Out-of-Distribution Robustness' },
+            { data: 'Adv Demo', title: 'Robustness to Adversarial Demonstrations' },
             { data: 'Privacy', title: 'Privacy' },
-            { data: 'Machine Ethics', title: 'Machine Ethics' },
+            { data: 'Ethics', title: 'Machine Ethics' },
             { data: 'Fairness', title: 'Fairness' },
-            { data: 'Average', title: 'Overall' }
+            { data: 'Average', title: 'Overall' },
+            { data: 'Model', title: 'Link' },
           ],
           header: true,
           stripeClasses: ['odd-row', 'even-row'],
-          order: [[9, 'desc']]
+          order: [[11, 'desc']]
         });
 
         table.rows().every(function () {
@@ -452,6 +433,8 @@
   });
 
 </script>
+
+</div>
 </div>
 </div>
 </section>
