@@ -326,8 +326,17 @@
       <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
 
       <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
-<table id="myTable" class="display"></table>
-<!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+      <table id="myTable" class="display"></table>
+      <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
+    </div>
+    </div>
+    <p>* We represent the compression rate as bit. For pruning method, we approximate the compression rate as 8 bit for 50% compression. All pruning methods are conducted with semi-structured sparsity (2:4, 1:2 or 4:8) which is approximately 50% sparsity.
+    </p>
+    <p>** We highlight dense model in red rows.
+    </p>
+    <p>*** Some models are compressed for multiple times with seed denoted as s1, s2 or s3 in the note.
+    </p>
+    </div>
 
 <script>
 
@@ -407,7 +416,7 @@
           data: data,
           columns: [
             { data: 'Base Model', title: 'Base Model' },
-            { data: 'Sparsity/bits', title: 'Sparsity/bits' },
+            { data: 'Sparsity/bits', title: 'Bit' },
             { data: 'Method Subtype', title: 'Comp Method' },
             { data: 'MMLU', title: 'MMLU' },
             { data: 'Toxicity', title: 'Toxicity' },
@@ -440,9 +449,6 @@
 
 </script>
 
-</div>
-</div>
-</div>
 </section>
 
 
