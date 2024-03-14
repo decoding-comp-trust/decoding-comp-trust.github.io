@@ -1,94 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Decoding Compressed Trust: Scrutinizing the Trustworthiness of Efficient LLMs Under Compression</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+  <title>Decoding Compressed Trust</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 </head>
+
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">Decoding Compressed Trust: Scrutinizing the Trustworthiness of Efficient LLMs Under Compression</h1>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered"><h1 class="title is-2 publication-title">Decoding Compressed Trust: Scrutinizing the Trustworthiness of Efficient LLMs
+            Under Compression</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://jyhong.gitlab.io">Junyuan Hong</a><sup>*1</sup>,</span>
@@ -134,7 +98,7 @@
               <a href="">Bo Li</a><sup>4,8</sup>,
             </span>
           </div>
-
+          
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of Texas, Austin,</span>
             <span class="author-block"><sup>2</sup>Drexel University</span>
@@ -144,63 +108,62 @@
             <span class="author-block"><sup>6</sup>Center for AI Safety</span>
             <span class="author-block"><sup>7</sup>University of California, Berkeley</span>
             <span class="author-block"><sup>8</sup>University of Chicago</span>
+            <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <!-- <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span> -->
+                          <a href="https://arxiv.org/pdf/2011.12948"
+                             class="external-link button is-normal is-rounded is-dark">
+                            <span class="icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </span>
+                            <span>Paper</span>
+                          </a>
+                        </span> -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="ai ai-arxiv"></i>
+                    <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
               </span>
               <!-- Video Link. -->
               <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
+                          <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                             class="external-link button is-normal is-rounded is-dark">
+                            <span class="icon">
+                                <i class="fab fa-youtube"></i>
+                            </span>
+                            <span>Video</span>
+                          </a>
+                        </span> -->
               <!-- Code Link. -->
               <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span> -->
+                          <a href="https://github.com/google/nerfies"
+                             class="external-link button is-normal is-rounded is-dark">
+                            <span class="icon">
+                                <i class="fab fa-github"></i>
+                            </span>
+                            <span>Code</span>
+                            </a>
+                        </span> -->
               <!-- Dataset Link. -->
               <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                </a>
-              </span> -->
+                          <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                             class="external-link button is-normal is-rounded is-dark">
+                            <span class="icon">
+                                <i class="far fa-images"></i>
+                            </span>
+                            <span>Data</span>
+                          </a>
+                        </span> -->
               <!-- Model Link. -->
               <span class="link-block">
-                <a href="https://huggingface.co/compressed-llm"
-                  class="external-link button is-normal is-rounded is-dark">
+                <a href="https://huggingface.co/compressed-llm" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <!-- <i class="far fa-images"></i> -->
                     🤗
@@ -208,10 +171,11 @@
                   <span>Model</span>
                 </a>
               </span>
-
+          
               <!-- Leaderboard Link. -->
               <span class="link-block">
-                <a href="https://huggingface.co/spaces/AI-Secure/llm-trustworthy-leaderboard" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://huggingface.co/spaces/AI-Secure/llm-trustworthy-leaderboard"
+                  class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     🏅
                   </span>
@@ -219,201 +183,267 @@
                 </a>
               </span>
             </div>
-
+          
+          </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
+
+
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted playsinline height="100%">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          We assess the trustworthiness of compressed LLMs with 3 leading base models, 5 SoTA compression methods and 8 trust
+          dimension.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              Compressing high-capability Large Language Models (LLMs) has emerged as a favored strategy for resource-efficient
+              inferences. While state-of-the-art (SoTA) compression methods boast impressive advancements in preserving benign task
+              performance, the potential risks of compression in term of safety and trustworthiness have been largely neglected.
+              This study conducts the first, thorough evaluation of <b>three (3) leading LLMs</b> using <b>five (5) SoTA compression
+                techniques</b> across <b>eight (8) trustworthiness dimensions</b>, encompassing a range of compression rates.
+            </p>
+            <p>
+              Our extensive experiments highlight the intricate interplay between model compression and LLM trustworthiness,
+              revealing some interesting patterns. 
+              <ul>
+              <li>We find that <span class="fontGrad-bg">quantization is a more effective approach than pruning</span> in achieving efficiency and trustworthiness simultaneously. For instance, a 4-bit quantized model retains the trustworthiness of its original counterpart, but model pruning significantly degrades trustworthiness, even at 50% sparsity.</li>
+              <li> It is also worth noting that employing moderate-rate quantization may <span class="fontGrad-bg">unexpectedly improve some trustworthiness dimensions</span> such as ethics and fairness.</li>
+              <li>Conversely, extreme quantization to <span class="fontGrad-bg">very low bit levels (3 bits) tends to significantly reduce trustworthiness</span> across various metrics. This increased risk cannot be uncovered by looking at benign performance alone, in turn, mandating comprehensive trustworthiness evaluation in practice.</li> 
+              <li>These findings culminate in practical recommendations for simultaneously achieving utility, efficiency, and trustworthiness in LLMs.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container">
+      <h2 class="title is-3">Compression Methods</h2>
+      
+      <!-- <img src="./static/images/methods.png" alt="methods"> -->
+      
+      Model List May refer to Qinbin's website on the table.
+      
+      <table class="table is-striped is-fullwidth">
+        <tr>
+          <th>Type</th>
+          <th>Method</th>
+          <th>Compression Rate</th>
+          <th>Weight Update</th>
+          <th>Calibration</th>
+        </tr>
+        <tr>
+          <td>Pruning</td>
+          <td>Magnitude</td>
+          <td>50% (2:4)</td>
+          <td>✗</td>
+          <td>weight</td>
+        </tr>
+        <tr>
+          <td>Pruning</td>
+          <td>SparseGPT</td>
+          <td>50% (2:4)</td>
+          <td>✓</td>
+          <td>weight w/ 128 samples</td>
+        </tr>
+        <tr>
+          <td>Pruning</td>
+          <td>Wanda</td>
+          <td>50% (2:4)</td>
+          <td>✗</td>
+          <td>weight & act. w/ 128 samples</td>
+        </tr>
+        <tr>
+          <td>Quant.</td>
+          <td>GPTQ</td>
+          <td>3,4,8-bit</td>
+          <td>✓</td>
+          <td>weight w/ 128 samples</td>
+        </tr>
+        <tr>
+          <td>Quant.</td>
+          <td>AWQ</td>
+          <td>3,4,8-bit</td>
+          <td>✓</td>
+          <td>act. w/ 128 samples</td>
+        </tr>
+      </table>
+      
+      Models are available at <a href="https://huggingface.co/compressed-llm">huggingface</a>.
+
+    </div>
   </div>
 </section>
 
-<section class="hero teaser">
+
+<!-- <section class="section hero is-small">
+  <div class="hero-body">
+    <div class="container"> -->
+<section class="section">
   <div class="container is-max-desktop">
+    <div class="container content">
+      <h2 class="title">Revisiting Paths to 7B-sized LLMs: Training Smaller, or Compressing Larger?</h2>
+
+      <p>
+        Scaling up the parameters of an LLM is believed to be a general strategy for enhancing various generation abilities,
+        including reasoning, math, language understanding, etc.
+        Existing supportive findings encourage people to train larger and larger models (Kaplan, et al., 2020).
+        But serving models on consumer-grade GPUs contrarily demands more efficient and often smaller models.
+        As a popular choice for deployment, 7b LLMs are suitably tailored to be accommodated by numerous consumer-grade GPUs.
+      </p>
+      <img src="./static/images/heatmap_0.5comp_all.png" alt="7b results">
+
+      <p>
+        The above figure present the relative score difference w.r.t. 13b models.
+        Every model is compressed at a 50% rate that leads to a similar model size as the 7b model.
+        Darker blue/red colors indicate more improvement/drops w.r.t. to the 13b dense models.
+        Gray dots/lines per cell indicate significantly lower/higher refusal rates (over 10%) which cast biases in the actual opinion/knowledge of a model.
+        <b>Quantization</b> appears to be the most effective solution with minimal loss both on trustworthiness and on benign performance.
+      </p>
+
+      <p>The main takeaways are:
+        <ul>
+          <li>7b models outperform their 13b counterparts in 3-4 trust dimensions by over 5 points, among which Fairness is consistently favored for all models.
+          </li>
+          <li>Quantizing 13b models into 8-bit precision (7b-sized) incurs fewer than 3-point drops across all metrics.</li>
+          <li>Pruning suffers from serious loss on at least three dimensions by over 5 points. Except for MMLU and OOD, results in most dimensions are inconsistent across models.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container content">
+      <h2 class="title">From Moderate to High Compression Rates: The (Unexpected) Gains and Losses</h2>
+
+      <p>
+        As a byproduct of our method, we can also solve the matting problem by ignoring
+        samples that fall outside of a bounding box during rendering.
+      </p>
+      <img src="./static/images/barplot_quant_LLAMA2_13b_Chat.png" alt="barplot_quant_LLAMA2_13b_Chat">
+
+      <p>
+        The above figure shows the effect of compressing LLAMA2 13b Chat to the low-bit region (lower than 8 as represented in the x-axis) will be less
+        consistent with the dense model but the effect may be positive in some perspectives. Black/red lines indicate the
+        performance of 13b and 7b dense models, respectively. Standard deviations are reported with fewer bits. Grey areas
+        indicate drops over 5 points. Dash lines represent the +/- 5 points w.r.t. the scores of the 13b model.
+        The main takeaways are:
+      <ul>
+      <li> The optimal compression rate for trustworthiness is 4-bit for LLAMA2 Chat 13b with less than 5 points loss on all dimensions.  </li>
+      <li> 4-bit quantization brings joint enhancement of efficiency and trustworthiness (fairness and ethics) for LLAMA2 Chat. </li>
+      <li> At 3-bit precision, although AWQ shows a good benign performance (MMLU), both AWQ and GPTQ significantly increase
+      trustworthiness risks across multiple dimensions, with GPTQ degrading over 50 points in the worst case. </li>
+      </ul>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container content">
+      <h2 class="title">Bag of Tricks for Trustworthy Compression</h2>
+
+      <p>We summarize the guidance for compressing a trustworthy LLM as follows.
+        <ul>
+          <li>In terms of efficiency, both quantization and pruning can work, but <i>quantization (AWQ) is more promising</i> for
+          obtaining trustworthy LLMs at the same compression rate.</li>
+          <li>Choose a trustworthy dense model to start with, since quantized models will restore their trustworthiness.</li>
+          <li>If the model weights (or pruning choices) are calibrated with a random set of data, <i>the heavily compressed model should be fully evaluated</i> to avoid potential risks before deployment.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Paper poster -->
+  <!-- <section class="hero is-small is-light">
     <div class="hero-body">
-      <video id="teaser" autoplay muted playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        We assess the trustworthiness of compressed LLMs with 3 leading base models, 5 SoTA compression methods and 8 trust dimension.
-      </h2>
-    </div>
-  </div>
-</section>
+      <div class="container">
+        <h2 class="title">Poster</h2>
 
+        <iframe src="static/pdfs/sample.pdf" width="100%" height="550">
+        </iframe>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Compressing high-capability Large Language Models (LLMs) has emerged as a favored strategy for resource-efficient inferences. While state-of-the-art (SoTA) compression methods boast impressive advancements in preserving benign task performance, the potential risks of compression in term of safety and trustworthiness have been largely neglected. This study conducts the first, thorough evaluation of <b>three (3) leading LLMs</b> using <b>five (5) SoTA compression techniques</b> across <b>eight (8) trustworthiness dimensions</b>, encompassing a range of compression rates.
-            </p>
-            <p>
-            Our extensive experiments highlight the intricate interplay between model compression and LLM trustworthiness, revealing some interesting patterns. We find that quantization is a more effective approach than pruning in achieving efficiency and trustworthiness simultaneously. For instance, a 4-bit quantized model retains the trustworthiness of its original counterpart, but model pruning significantly degrades trustworthiness, even at 50% sparsity. It is also worth noting that employing quantization within a moderate bit range could, in some cases, unexpectedly improve certain trustworthiness dimensions such as privacy and fairness.
-            Conversely, extreme quantization to very low bit levels (3 bits) tends to significantly reduce trustworthiness across various metrics. This increased risk cannot be uncovered by looking at benign performance alone, in turn, mandating comprehensive trustworthiness evaluation in practice. These findings culminate in practical recommendations for simultaneously achieving utility, efficiency, and trustworthiness in LLMs.
-          </p>
-        </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Compression Methods</h2>
-
-        <img src="./static/images/methods.png" alt="methods">
-
-        Model List
-
-        May refer to Qinbin's website on the table.
-
-        <table class="table is-striped is-fullwidth">
-          <tr>
-            <th>Model</th>
-            <th>Compression Method</th>
-            <th>Compression Rate</th>
-          </tr>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>30</td>
-          </tr>
-          <tr>
-            <td>Jane</td>
-            <td>Smith</td>
-            <td>25</td>
-          </tr>
-          <tr>
-            <td>Emily</td>
-            <td>Jones</td>
-            <td>22</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
+  </section> -->
+  <!--End paper poster -->
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Revisiting Paths to 7B-sized LLMs: Training Smaller, or Compressing Larger?</h2>
-          <p>
-            Consider to use plotly. Also include model links here.
-          </p>
-          <img src="./static/images/heatmap_0.5comp_all.png" alt="7b results">
-
-          <!-- <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video> -->
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">From Moderate to High Compression Rates</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <img src="./static/images/barplot_quant_LLAMA2_13b_Chat.png" alt="barplot_quant_LLAMA2_13b_Chat">
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{hong2024comptrust,
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{hong2024comptrust,
     title={Decoding Compressed Trust: Scrutinizing the Trustworthiness of Efficient LLMs Under Compression},
-    author={Junyuan Hong, Jinhao Duan, Chenhui Zhang, Zhangheng Li, Chulin Xie, Kelsey Lieberman, 
-      James Diffenderfer, Brian Bartoldson, Ajay Jaiswal, Kaidi Xu, Bhavya Kailkhura, 
-      Dan Hendrycks, Dawn Song, Zhangyang Wang, Bo Li},
+    author={Hong, Junyuan and Duan, Jinhao and Zhang, Chenhui and Li, Zhangheng 
+      and Xie, Chulin and Lieberman, Kelsey and Diffenderfer, James 
+      and Bartoldson, Brian and Jaiswal, Ajay and Xu, Kaidi and Kailkhura, Bhavya 
+      and Hendrycks, Dan and Song, Dawn and Wang, Zhangyang and Bo Li},
     journal={arXiv preprint arXiv:XXX},
     year={2024}
-    }</code></pre>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
+}</code></pre>
     </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            We base the design of this website on <a>https://nerfies.github.io</a>
-          </p>
+  </section>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> and <a
+                href="https://boyiwei.com/alignment-attribution/#motivation" target="_blank">alignment-attribution</a> project.
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
 
 </body>
+
 </html>
