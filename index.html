@@ -335,7 +335,7 @@
   function modifyModelName(val) {
     let model_name = val.split("/")[2];
     const models = ["llama-2-13b-chat", "llama-2-13b", "vicuna-13b-v1.3"];
-    const compressions = ["gptq", "awq", "mag", "sparsegpt", "wanda"];
+    const compressions = ["none", "gptq", "awq", "mag", "sparsegpt", "wanda"];
 
     var base_model = "";
     for (let i = 0; i < models.length; i++) {
@@ -352,45 +352,49 @@
         break
       }
     }
-    var rate_str = model_name.substring(model_name.indexOf("@") + "@".length);
-    if (rate_str.includes("bit")) {
-      // console.log(rate_str);  // to get seed
-      rate_str = rate_str.substring(0, rate_str.indexOf("bit")) + "bit";
+    if (comp_str == "none" | comp_str == "") {
+      var rate_str = ""
     } else {
-      if (rate_str.includes("to")) {
+      var rate_str = model_name.substring(model_name.indexOf("@") + "@".length);
+      if (rate_str.includes("bit")) {
         // console.log(rate_str);  // to get seed
-        // rate_str = rate_str.substring(rate_str.indexOf("to")-1, rate_str.indexOf("to")+3); 
-        rate_str = rate_str.charAt(rate_str.indexOf("to") - 1) + ":" + rate_str.charAt(rate_str.indexOf("to") + 2);
-      }
-    }
-
-    // Get seed
-    // Regex to match a number either at the beginning followed by 'seed' or at the end preceded by 'seed'
-    let regex = /(?:_)?(?<prefix>\d+)seed|seed(?<suffix>\d+)$/;
-
-    let match = model_name.match(regex);
-    let seed;
-    var seed_str = "";
-
-    if (match) {
-      // Check which group ('prefix' or 'suffix') has the number
-      if (match.groups.prefix) {
-        seed = match.groups.prefix;
-      } else if (match.groups.suffix) {
-        seed = match.groups.suffix;
+        rate_str = rate_str.substring(0, rate_str.indexOf("bit")) + "bit";
+      } else {
+        if (rate_str.includes("to")) {
+          // console.log(rate_str);  // to get seed
+          // rate_str = rate_str.substring(rate_str.indexOf("to")-1, rate_str.indexOf("to")+3); 
+          rate_str = rate_str.charAt(rate_str.indexOf("to") - 1) + ":" + rate_str.charAt(rate_str.indexOf("to") + 2);
+        }
       }
 
-      // console.log(seed); // Outputs the extracted number
+      // Get seed
+      // Regex to match a number either at the beginning followed by 'seed' or at the end preceded by 'seed'
+      let regex = /(?:_)?(?<prefix>\d+)seed|seed(?<suffix>\d+)$/;
 
-      rate_str = rate_str + " (seed " + seed + ")";
-      seed_str = seed_str + "(seed " + seed + ")";
-    } else {
-      // console.log("No number found adjacent to 'seed'" + "for " + model_name);
+      let match = model_name.match(regex);
+      let seed;
+      var seed_str = "";
+
+      if (match) {
+        // Check which group ('prefix' or 'suffix') has the number
+        if (match.groups.prefix) {
+          seed = match.groups.prefix;
+        } else if (match.groups.suffix) {
+          seed = match.groups.suffix;
+        }
+
+        // console.log(seed); // Outputs the extracted number
+
+        rate_str = rate_str + " (s" + seed + ")";
+        seed_str = seed_str + "(s" + seed + ")";
+      } else {
+        // console.log("No number found adjacent to 'seed'" + "for " + model_name);
+      }
     }
 
     // Example modification: append "-NEW" to each value
     // return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\">" + base_model + ", " + comp_str + ", " + rate_str +"</a>";
-    return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\"> link </a> " + seed_str;
+    return "<a href=\"https://huggingface.co/" + val.split("/").slice(1).join("/").replace(/@/g, "/tree/") + "\"> link </a> " + rate_str;
   }
 
 
@@ -406,30 +410,29 @@
             { data: 'Base Model', title: 'Base Model' },
             { data: 'Sparsity/bits', title: 'Sparsity/bits' },
             { data: 'Method Subtype', title: 'Comp Method' },
+            { data: 'MMLU', title: 'MMLU' },
             { data: 'Toxicity', title: 'Toxicity' },
-            { data: 'Stereotype', title: 'Stereotype Bias' },
-            { data: 'AdvGLUE++', title: 'Adversarial Robustness' },
-            { data: 'OOD', title: 'Out-of-Distribution Robustness' },
-            { data: 'Adv Demo', title: 'Robustness to Adversarial Demonstrations' },
+            { data: 'Stereotype', title: 'Stereotype' },  // 'Stereotype Bias'
+            { data: 'AdvGLUE++', title: 'AdvGLUE++' }, // 'Adversarial Robustness'
+            { data: 'OOD', title: 'OOD' },  //'Out-of-Distribution Robustness'
+            { data: 'Adv Demo', title: 'Adv Demo' },  // 'Robustness to Adversarial Demonstrations'
             { data: 'Privacy', title: 'Privacy' },
-            { data: 'Ethics', title: 'Machine Ethics' },
+            { data: 'Ethics', title: 'Ethics' },  // 'Machine Ethics'
             { data: 'Fairness', title: 'Fairness' },
             { data: 'Average', title: 'Overall' },
-            { data: 'Model', title: 'Link' },
+            { data: 'Model', title: 'Note', render: function (data, type, row) {
+                // Modify the data for display only
+                return modifyModelName(data); // Example: Adds 10 years to each 'Age' value
+              } },
           ],
           header: true,
           stripeClasses: ['odd-row', 'even-row'],
-          order: [[11, 'desc']],
-        });
-
-        table.rows().every(function (rowIdx, tableLoop, rowLoop) {
-          var data = this.data();
-          data['Model'] = modifyModelName(data['Model']);
-
-          if (data['Method Subtype'] == 'none') {
-            $(this.node()).addClass('highlight-row')
+          order: [[12, 'desc']],
+          rowCallback: function (row, data, index) {
+            if (data['Method Subtype'] == 'none') {
+              $(row).addClass('highlight-row')
+            }
           }
-          this.data(data); // Set the modified data back to the row
         });
 
       }
