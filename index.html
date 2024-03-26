@@ -234,20 +234,19 @@
           <h2 class="title is-3">Overview</h2>
           <div class="content has-text-justified">
             <p>
-              Compressing high-capability Large Language Models (LLMs) has emerged as a favored strategy for resource-efficient
-              inferences. While state-of-the-art (SoTA) compression methods boast impressive advancements in preserving benign task
-              performance, the potential risks of compression in term of safety and trustworthiness have been largely neglected.
-              This study conducts the first, thorough evaluation of <b>three (3) leading LLMs</b> using <b>five (5) SoTA compression
+              Compressing high-capability Large Language Models (LLMs) has emerged as a favored strategy for resource-efficient inferences. While state-of-the-art (SoTA) compression methods boast impressive advancements in preserving benign task performance, the potential risks of compression in terms of safety and trustworthiness have been largely neglected. This study conducts the first, thorough evaluation of <b>three (3) leading LLMs</b> using <b>five (5) SoTA compression
                 techniques</b> across <b>eight (8) trustworthiness dimensions</b>, encompassing a range of compression rates.
             </p>
             <p>
-              Our extensive experiments highlight the intricate interplay between model compression and LLM trustworthiness,
-              revealing some interesting patterns. 
+              Our experiments highlight the intricate interplay between compression and trustworthiness, revealing some interesting patterns.
               <ul>
-              <li>We find that <span class="fontGrad-bg">quantization is a more effective approach than pruning</span> in achieving efficiency and trustworthiness simultaneously. For instance, a 4-bit quantized model retains the trustworthiness of its original counterpart, but model pruning significantly degrades trustworthiness, even at 50% sparsity.</li>
-              <li> It is also worth noting that employing moderate-rate quantization may <span class="fontGrad-bg">unexpectedly improve some trustworthiness dimensions</span> such as ethics and fairness.</li>
-              <li>Conversely, extreme quantization to <span class="fontGrad-bg">very low bit levels (3 bits) tends to significantly reduce trustworthiness</span> across various metrics. This increased risk cannot be uncovered by looking at benign performance alone, in turn, mandating comprehensive trustworthiness evaluation in practice.</li> 
-              <li>These findings culminate in practical recommendations for simultaneously achieving utility, efficiency, and trustworthiness in LLMs.</li>
+              <li>We find that <span class="fontGrad-bg">quantization is a more effective approach than pruning</span> in achieving efficiency and trustworthiness simultaneously. For instance, a 4-bit quantized model retains the trustworthiness of its original counterpart, but model pruning significantly degrades trustworthiness, even at 50% sparsity.
+              </li>
+              <li>Moreover, employing quantization within a moderate bit range could <span class="fontGrad-bg">unexpectedly improve certain trustworthiness dimensions</span> such as ethics and fairness.
+              </li>
+              <li>Conversely, extreme quantization to <span class="fontGrad-bg">very low bit levels (3 bits) tends to significantly reduce trustworthiness</span>. This increased risk cannot be uncovered by looking at benign performance alone, in turn, mandating comprehensive trustworthiness evaluation in practice.
+              </li> 
+              <li>These findings culminate in practical recommendations for simultaneously achieving high utility, efficiency, and trustworthiness in LLMs.</li>
               </ul>
             </p>
           </div>
@@ -261,6 +260,14 @@
   <div class="container is-max-desktop">
     <div class="container">
       <h2 class="title is-3">Benchmark</h2>
+
+      <p>Understanding the trustworthiness of compressed models requires a comprehensive evaluation to gain insights.
+      In this paper, we are interested in three questions:
+      (1) What is the recommended compression method in the joint view of multi-dimensional trustworthiness and
+      standard performance?
+      (2) What is the optimal compression rate for trading off trustworthiness and efficiency?
+      (3) In extreme compression rates (3-bit quantization), how will the compressed models perform according to our
+      metrics?</p>
       
       <!-- <img src="./static/images/methods.png" alt="methods"> -->
       
@@ -309,13 +316,13 @@
         </tr>
       </table>
       
-      As shown in the above table, we curate a set of state-of-the-art training-free pruning and quantization methods that can lead to true acceleration on hardware.
-      Models are available at <a href="https://huggingface.co/compressed-llm">compressed-llm huggingface org</a>.
+      <p>
+      To answer the above questions, we curate a set of state-of-the-art training-free pruning and quantization methods that can lead to true acceleration on hardware.
+      We compress popular LLMs (LLAMA2 Chat, LLAMA2, and Vicuna) with 13 billion parameters (13b) with published model checkpoints at <a href="https://huggingface.co/compressed-llm">huggingface</a>.
       Codes for preparing the models are available at the <a href="https://github.com/decoding-comp-trust/comp-trust">decoding-comp-trust/comp-trust</a> repo.
-      The benchmark is modified from DecodingTrust and the modified benchmark code is available at <a href="https://github.com/decoding-comp-trust/DecodingTrust">here</a>.
-      A full comparision with other dense models, please refer to the <a href="https://huggingface.co/spaces/AI-Secure/llm-trustworthy-leaderboard">DecodingTrust Leaderboard</a>.
-      But note that the results in standard DecodingTrust Leaderboard will be different from results here referring to <a href="https://github.com/decoding-comp-trust/DecodingTrust">our code checkpoint</a>.
-      A compression-centric leaderboard is as follows.
+      Our assessment is based on two benchmarks: MMLU (as the benign performance) and DecodingTrust including 8 trustworthy dimensions.
+      The code checkpoint of DecodingTrust with some customization is available at <a href="https://github.com/decoding-comp-trust/DecodingTrust">here</a>.
+      </p>
     </div>
   </div>
 </section>
@@ -327,6 +334,16 @@
       <div class="column">
       
       <h3 class="title is-3" id="leaderboard">Leaderboard</h3>
+
+      <p>
+      A leaderboard consisting of compressed and dense models are as follows.
+      We include 8 trust dimensions: Stereotype, Privacy, Toxicity, Fairness, Adversarial Robustness
+      (AdvGLUE++), Out-Of-Distribution (OOD) Robustness, Robustness to Adversarial Demonstrations (AdvDemo), and Ethics.
+      A full comparision with other dense models, please refer to the <a
+        href="https://huggingface.co/spaces/AI-Secure/llm-trustworthy-leaderboard">DecodingTrust Leaderboard</a>.
+      Note that the results in standard DecodingTrust Leaderboard will be different from results here referring to <a
+        href="https://github.com/decoding-comp-trust/DecodingTrust">our code checkpoint</a>.
+      </p>
 
       <!-------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
       <table id="myTable" class="display"></table>
@@ -484,10 +501,12 @@
 
       <p>The main takeaways are:
         <ul>
-          <li>7b models outperform their 13b counterparts in 3-4 trust dimensions by over 5 points, among which Fairness is consistently favored for all models.
+          <li>7b models outperform their 13b counterparts in 3-4 trust dimensions by over 5 points, among which Fairness is
+          consistently favored for all models.
           </li>
-          <li>Quantizing 13b models into 8-bit precision (7b-sized) incurs fewer than 3-point drops across all metrics.</li>
-          <li>Pruning suffers from serious loss on at least three dimensions by over 5 points. Except for MMLU and OOD, results in most dimensions are inconsistent across models.</li>
+          <li>Quantizing 13b models into 8-bit precision (7b-sized) incurs negligible (smaller than 3-point) drops across all metrics.</li>
+          <li>Pruning suffers from serious loss on at least three dimensions by over 5 points. Except for MMLU and OOD, results in
+          most dimensions are different across models.</li>
         </ul>
       </p>
     </div>
@@ -512,10 +531,9 @@
         indicate drops over 5 points. Dash lines represent the +/- 5 points w.r.t. the scores of the 13b model.
         The main takeaways are:
       <ul>
-      <li> The optimal compression rate for trustworthiness is 4-bit for LLAMA2 Chat 13b with less than 5 points loss on all dimensions.  </li>
+      <li> The optimal compression rate for trustworthiness is 4-bit for LLAMA2 Chat 13b with less than 5 points loss on all dimensions. </li>
       <li> 4-bit quantization brings joint enhancement of efficiency and trustworthiness (fairness and ethics) for LLAMA2 Chat. </li>
-      <li> At 3-bit precision, although AWQ shows a good benign performance (MMLU), both AWQ and GPTQ significantly increase
-      trustworthiness risks across multiple dimensions, with GPTQ degrading over 50 points in the worst case. </li>
+      <li> At 3-bit precision, although AWQ shows a good benign performance (MMLU), both AWQ and GPTQ significantly increase trustworthiness risks across multiple dimensions, with GPTQ degrading over 50 points in the worst case. </li>
       </ul>
       </p>
     </div>
@@ -529,10 +547,11 @@
 
       <p>We summarize the guidance for compressing a trustworthy LLM as follows.
         <ol>
-          <li>In terms of efficiency, both quantization and pruning can work, but <i>quantization (AWQ) is more promising</i> for
-          obtaining trustworthy LLMs at the same compression rate.</li>
-          <li>Choose a trustworthy dense model to start with, since quantized models will restore their trustworthiness.</li>
-          <li>If the model weights (or pruning choices) are calibrated with a random set of data, <i>the heavily compressed model should be fully evaluated</i> to avoid potential risks before deployment.</li>
+          <li>In terms of efficiency, both quantization and pruning can work, but <i>quantization is more reliable</i> for obtaining
+          LLMs with similar trustworthiness as the source model at the same compression rate.</li>
+          <li>Choose a trustworthy dense model to start with, since quantized models will achieve similar trustworthiness as the dense source model.</li>
+          <li>If the model weights (or pruning choices) are calibrated with a random set of data, <i>the heavily compressed model should be fully evaluated</i> to avoid potential risks before deployment.
+          </li>
         </ol>
       </p>
     </div>
